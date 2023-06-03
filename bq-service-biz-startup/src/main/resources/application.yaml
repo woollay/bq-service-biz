@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: root,base,nacos,circuitbreaker
+  application:
+    name: bq-demo
+logging:
+  level:
+    ROOT: INFO
+server:
+  port: 9993
+bq:
+  demo:
+    qr: qr-limit
+  limit:
+    enabled: true
+
+
+
+
+

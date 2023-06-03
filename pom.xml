@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.biuqu</groupId>
+        <artifactId>bq-parent</artifactId>
+        <version>1.0.2</version>
+    </parent>
+
+    <artifactId>bq-service-biz</artifactId>
+    <version>1.0.0</version>
+
+    <modules>
+        <module>${project.artifactId}-common</module>
+        <module>${project.artifactId}-dao</module>
+        <module>${project.artifactId}-remote</module>
+        <module>${project.artifactId}-service</module>
+        <module>${project.artifactId}-web</module>
+        <module>${project.artifactId}-startup</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--引入基础依赖-->
+            <dependency>
+                <groupId>com.biuqu</groupId>
+                <artifactId>biuqu-parent</artifactId>
+                <version>1.0.2</version>
+                <scope>import</scope>
+            </dependency>
+
+            <!---引入微服务基础jar-->
+            <dependency>
+                <groupId>com.biuqu</groupId>
+                <artifactId>bq-boot-base</artifactId>
+                <version>1.0.3</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/*.sql</exclude>
+                    <exclude>**/application*ci*.yaml</exclude>
+                    <exclude>**/application*stg*.yaml</exclude>
+                    <exclude>**/application*prd*.yaml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+</project>
