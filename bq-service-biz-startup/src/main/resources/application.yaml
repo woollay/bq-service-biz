@@ -2,7 +2,7 @@ spring:
   profiles:
     active: root,base,nacos,circuitbreaker
   application:
-    name: bq-demo
+    name: bq-biz
 logging:
   level:
     ROOT: INFO
