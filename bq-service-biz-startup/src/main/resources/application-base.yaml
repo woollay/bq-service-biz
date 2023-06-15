@@ -36,7 +36,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:postgresql://localhost:5432/postgres?&schema=public&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: postgres
-    password: postgres
+    password: ENC(02488027c31ba144f5f3a9b6c03de5559c323b8e220fb221)
     #password: postgres
     validationQuery: SELECT 'test' as txt
 mybatis:

@@ -74,6 +74,68 @@ management:
 bq:
   json:
     snake-case: true
+    rules:
+      - clazz: com.biuqu.boot.common.demo.model.UserInner
+        rules:
+          #用户名除了前2个字符和后2个字符外的字符都打'$'码
+          - name: name
+            index: 2
+            mask: $
+            len: -2
+          #超过50个字符的后面都不显示打码
+          - name: photo
+            index: -1
+            mask: .
+            len: 50
+          #手机号前3后4之外的都打码
+          - name: phone
+            index: 3
+            len: -4
+          #身份证号6后4之外的都打码
+          - name: card_id
+            index: 6
+            len: -4
+          #银行卡号前6后4之外的都打码
+          - name: bank_no
+            index: 6
+            len: -4
+          #姓名字段的第一个字符之后的所有字符都打码
+          - name: real_name
+            index: 1
+            len: 0
+      - clazz: com.biuqu.boot.common.demo.model.UserOuter
+        rules:
+          #用户名除了前2个字符和后2个字符外的字符都打'$'码
+          - name: name
+            index: 2
+            mask: $
+            len: -2
+          #超过50个字符的后面都不显示打码
+          - name: photo
+            index: -1
+            mask: .
+            len: 50
+          #手机号前3后4之外的都打码
+          - name: phone
+            index: 3
+            len: -4
+          #身份证号6后4之外的都打码
+          - name: card_id
+            index: 6
+            len: -4
+          #银行卡号前6后4之外的都打码
+          - name: bank_no
+            index: 6
+            len: -4
+          #姓名字段的第一个字符之后的所有字符都打码
+          - name: real_name
+            index: 1
+            len: 0
+    ignores:
+      - clazz: com.biuqu.boot.common.demo.model.UserInner
+        fields: pwd,key
+      - clazz: com.biuqu.boot.common.demo.model.UserOuter
+        fields: pwd,key,photo_hash
   encrypt:
     #默认加密算法(true表示国密)
     gm: true
