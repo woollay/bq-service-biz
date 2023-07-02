@@ -1,11 +1,9 @@
 package com.biuqu.boot.web.demo;
 
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.biuqu.boot.common.demo.constants.DemoConst;
 import com.biuqu.boot.common.demo.model.QrCode;
 import com.biuqu.boot.common.demo.model.QrCodeInner;
 import com.biuqu.boot.common.demo.model.QrCodeResult;
-import com.biuqu.boot.handler.CircuitBreakerHandler;
 import com.biuqu.boot.service.RestService;
 import com.biuqu.boot.service.demo.AsyncService;
 import com.biuqu.boot.web.BaseBizController;
@@ -52,7 +50,6 @@ public class QrCodeController extends BaseBizController<QrCodeResult, QrCode, Qr
      * @param inner 业务入参模型
      * @return 公钥结果对象
      */
-    @SentinelResource(value = "/demo/jwk", blockHandlerClass = CircuitBreakerHandler.class, defaultFallback = "handle")
     @PostMapping("/demo/jwk")
     @Override
     public ResultCode<QrCodeResult> execute(@RequestBody QrCodeInner inner)

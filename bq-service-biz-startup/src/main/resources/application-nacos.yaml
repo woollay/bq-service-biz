@@ -19,7 +19,7 @@ spring:
             data_type: json
             rule_type: flow
     nacos:
-      data-id: bq-gateway-route-id
+      data-id: ${spring.application.name}
       timeout: 3000
       server-addr: localhost:8848
       username: nacos

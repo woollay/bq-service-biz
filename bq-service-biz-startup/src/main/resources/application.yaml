@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: root,base,nacos,circuitbreaker
+    active: root,base,nacos
   application:
     name: bq-biz
 logging:
